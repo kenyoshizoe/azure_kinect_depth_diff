@@ -9,16 +9,17 @@ find_package(OpenCV REQUIRED)
 
 project(azure_kinect_depth_diff)
 
-add_executable( main
-    main.cpp
+add_executable( streaming
+    main/depth_stream.cpp
 )
 
-target_include_directories( main
+target_include_directories( streaming
     PUBLIC
+    include
     ${OpenCV_INCLUDE_DIRS}
 )
 
-target_link_libraries( main
+target_link_libraries( streaming
     k4a::k4a
     ${OpenCV_LIBRARIES}
 )
